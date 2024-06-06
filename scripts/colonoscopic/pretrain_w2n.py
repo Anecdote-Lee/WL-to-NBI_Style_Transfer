@@ -6,7 +6,9 @@ from uvcgan2.presets import GEN_PRESETS
 from uvcgan2.utils.parsers import add_preset_name_parser, add_batch_size_parser
 
 def parse_cmdargs():
-    parser = argparse.ArgumentParser(description = 'Pretrain AFHQ generators')
+    parser = argparse.ArgumentParser(
+        description = 'Pretrain Colonoscopic White light to NBI frame generators'
+    )
     add_preset_name_parser(parser, 'gen', GEN_PRESETS, 'uvcgan2')
     add_batch_size_parser(parser, default = 32)
     return parser.parse_args()
@@ -19,12 +21,14 @@ args_dict = {
             {
                 'dataset' : {
                     'name'   : 'imagedir',
-                    'path'   : 'afhq_resized_lanczos',
+                    'path'   : 'roi_colonoscopic_resized_lanczos',
                 },
                 'shape'           : (3, 256, 256),
                 'transform_train' : [
                     'random-flip-horizontal',
+                    { 'name' : 'resize',          'size'    : 286, },
                     { 'name' : 'random-rotation', 'degrees' : 10,  },
+                    { 'name' : 'random-crop',     'size'    : 256, },
                     {
                         'name' : 'color-jitter',
                         'brightness' : 0.2,
@@ -39,7 +43,7 @@ args_dict = {
         'merge_type' : 'none',
         'workers'    : 1,
     },
-    'epochs'        : 200,
+    'epochs'        : 1000,
     'discriminator' : None,
     'generator' : {
         **GEN_PRESETS[cmdargs.gen],
@@ -73,7 +77,7 @@ args_dict = {
     'steps_per_epoch'  : 32 * 1024 // cmdargs.batch_size,
 # args
     'label'      : f'pretrain-{cmdargs.gen}',
-    'outdir'     : os.path.join(ROOT_OUTDIR, 'afhq_resized_lanczos'),
+    'outdir'     : os.path.join(ROOT_OUTDIR, 'colonoscopic_resized_lanczos'),
     'log_level'  : 'DEBUG',
     'checkpoint' : 100,
 }

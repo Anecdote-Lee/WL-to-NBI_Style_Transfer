@@ -45,9 +45,25 @@ def select_dataset(name, path, split, transform, **kwargs):
     raise ValueError(f"Unknown dataset: {name}")
 
 def construct_single_dataset(dataset_config, split):
+    # #dataset_config로 이런 값들 들어갈 것{
+    #             "dataset": {
+    #                 "domain": "wl",
+    #                 "name": "image-domain-hierarchy",
+    #                 "path": "colonoscopic_resized_lanczos"
+    #             },
+    #             "shape": [
+    #                 3,
+    #                 512,
+    #                 768
+    #             ],
+    #             "transform_test": null,
+    #             "transform_train": [
+    #                 "random-flip-horizontal"
+    #             ]
+    #         },
     name, kwargs = extract_name_kwargs(dataset_config.dataset)
     path         = os.path.join(ROOT_DATA, kwargs.pop('path', name))
-
+    #path로 특정 domain까지 들어가고
     if split == SPLIT_TRAIN:
         transform = select_transform(dataset_config.transform_train)
     else:
@@ -80,7 +96,7 @@ def construct_single_loader(
     )
 
 def construct_data_loaders(data_config, batch_size, split):
-    datasets = construct_datasets(data_config, split)
+    datasets = construct_datasets(data_config, split) #list로 
     shuffle  = (split == SPLIT_TRAIN)
 
     if data_config.merge_type == MERGE_PAIRED:

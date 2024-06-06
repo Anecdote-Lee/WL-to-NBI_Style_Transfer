@@ -29,7 +29,6 @@ def load_base_model(model, transfer_config):
     )
 
     epoch = model.find_last_checkpoint_epoch()
-
     if epoch > 0:
         LOGGER.warning("Load transfer model from a checkpoint '%d'", epoch)
     else:

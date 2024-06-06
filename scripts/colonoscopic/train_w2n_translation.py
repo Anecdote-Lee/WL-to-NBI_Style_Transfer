@@ -7,11 +7,11 @@ from uvcgan2.utils.parsers import add_preset_name_parser
 
 def parse_cmdargs():
     parser = argparse.ArgumentParser(
-        description = 'Train AFQH Cat2Dog I2I model'
+        description = 'Train Colonoscopic White light to NBI frame I2I model'
     )
 
     add_preset_name_parser(parser, 'gen',  GEN_PRESETS, 'uvcgan2')
-    add_preset_name_parser(parser, 'head', BH_PRESETS,  'bn', 'batch head')
+    add_preset_name_parser(parser, 'head', BH_PRESETS,  'bsd', 'batch head')
 
     parser.add_argument(
         '--no-pretrain', dest = 'no_pretrain', action = 'store_true',
@@ -19,12 +19,12 @@ def parse_cmdargs():
     )
 
     parser.add_argument(
-        '--labmda-gp', dest = 'lambda_gp', type = float,
+        '--lambda-gp', dest = 'lambda_gp', type = float,
         default = 1.0, help = 'magnitude of the gradient penalty'
     )
 
     parser.add_argument(
-        '--labmda-cycle', dest = 'lambda_cyc', type = float,
+        '--lambda-cycle', dest = 'lambda_cyc', type = float,
         default = 5.0, help = 'magnitude of the cycle-consisntecy loss'
     )
 
@@ -40,7 +40,7 @@ def get_transfer_preset(cmdargs):
         return None
 
     base_model = (
-        'afhq_resized_lanczos/'
+        'colonoscopic_resized_lanczos/'
         'model_m(simple-autoencoder)_d(None)'
         f"_g({GEN_PRESETS[cmdargs.gen]['model']})_pretrain-{cmdargs.gen}"
     )
@@ -65,19 +65,29 @@ args_dict = {
                 'dataset' : {
                     'name'   : 'image-domain-hierarchy',
                     'domain' : domain,
-                    'path'   : 'afhq_resized_lanczos',
+                    'path'   : 'roi_colonoscopic_resized_lanczos',
                 },
                 'shape'           : (3, 256, 256),
                 'transform_train' : [
-                    'random-flip-horizontal',
+                    # 'random-flip-horizontal',
+                    { 'name' : 'resize',          'size'    : 286, },
+                    { 'name' : 'random-crop',     'size'    : 256, },
+                    # {'name': 'random-rotation', 'degrees' : 90},
+                    # {
+                    #     'name' : 'color-jitter',
+                    #     'brightness' : 0.1,
+                    #     'contrast'   : 0.1,
+                    #     'saturation' : 0.1,
+                    #     'hue'        : 0.1,
+                    # },
                 ],
                 'transform_test' : None,
-            } for domain in [ 'cat', 'dog' ]
+            } for domain in [ 'wl', 'nbi' ]
         ],
         'merge_type' : 'unpaired',
         'workers'    : 1,
     },
-    'epochs'      : 200,
+    'epochs'      : 1000,
     'discriminator' : {
         'model'      : 'basic',
         'model_args' : { 'shrink_output' : False, },
@@ -127,14 +137,14 @@ args_dict = {
     'scheduler'       : None,
     'loss'            : 'lsgan',
     'steps_per_epoch' : 2000,
-    # 'transfer'        : get_transfer_preset(cmdargs),
-    'transfer' : None,
+    # 'transfer'        : None,
+    'transfer'        : get_transfer_preset(cmdargs),
 # args
     'label'  : (
         f'{cmdargs.gen}-{cmdargs.head}_({cmdargs.no_pretrain}'
         f':{cmdargs.lambda_cyc}:{cmdargs.lambda_gp}:{cmdargs.lr_gen})'
     ),
-    'outdir' : os.path.join(ROOT_OUTDIR, 'afhq_resized_lanczos', 'cat2dog'),
+    'outdir' : os.path.join(ROOT_OUTDIR, 'colonoscopic_resized_lanczos', 'w2n'),
     'log_level'  : 'DEBUG',
     'checkpoint' : 50,
 }
