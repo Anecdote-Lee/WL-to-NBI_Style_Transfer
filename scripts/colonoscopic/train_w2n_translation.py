@@ -65,13 +65,13 @@ args_dict = {
                 'dataset' : {
                     'name'   : 'image-domain-hierarchy',
                     'domain' : domain,
-                    'path'   : 'roi_colonoscopic_resized_lanczos',
+                    'path'   : 'new_crop_colonoscopic_resized_lanczos',
                 },
-                'shape'           : (3, 256, 256),
+                'shape'           : (3, 512, 512),
                 'transform_train' : [
-                    # 'random-flip-horizontal',
-                    { 'name' : 'resize',          'size'    : 286, },
-                    { 'name' : 'random-crop',     'size'    : 256, },
+                    'random-flip-horizontal',
+                    { 'name' : 'resize',          'size'    : 576, },
+                    { 'name' : 'random-crop',     'size'    : 512, },
                     # {'name': 'random-rotation', 'degrees' : 90},
                     # {
                     #     'name' : 'color-jitter',
@@ -87,7 +87,7 @@ args_dict = {
         'merge_type' : 'unpaired',
         'workers'    : 1,
     },
-    'epochs'      : 1000,
+    'epochs'      : 500,
     'discriminator' : {
         'model'      : 'basic',
         'model_args' : { 'shrink_output' : False, },
