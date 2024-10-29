@@ -1,14 +1,9 @@
 # UVCGAN v2: An Improved Cycle-Consistent GAN for Unpaired Image-to-Image Translation
 
 <p align="center">
-  <img src="https://github.com/LS4GAN/gallery/blob/main/uvcgan2/animations/male2female_v2.webp" width="95%" title="male to female translation with CelebA-HQ">
+  <img src="./figure.jpg">
 </p>
-<p align="center">
-  <img src="https://github.com/LS4GAN/gallery/blob/main/uvcgan2/animations/wild2cat_v2.webp" width="95%" title="wild to cat translation with AFHQ">
-</p>
-<p align="center">
-  <img src="https://github.com/LS4GAN/gallery/blob/main/uvcgan2/animations/cat2dog_v2.webp" width="95%" title="cat to dog translation with AFHQ">
-</p>
+
 
 _Samples of Male to Female (Celeba-HQ), Wildlife to Cat (AFHQ), and Cat to Dog
 (AFHQ) translations obtained with UVCGANv2_
