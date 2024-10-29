@@ -14,7 +14,7 @@
 **(C)** Percentage of well-implemented features (Color, Surface pattern, Vessel pattern) in 50 `NBI_gen` images, as assessed by 4 clinical experts.  
 <br>
 
-
+##
 
 This package provides reference implementation of the `UVCGAN v2: An Improved
 Cycle-Consistent GAN for Unpaired Image-to-Image Translation`
