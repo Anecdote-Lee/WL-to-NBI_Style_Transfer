@@ -5,7 +5,17 @@
 </p>
 
 
-_Figure 1. Example of results of generated NBI images and assessment of clinical experts. (A) The first column images refer 〖WL〗_real , white light imaging colonoscopic images. Second column images refer 〖NBI〗_gen , translated NBI images from left 〖WL〗_real images. Third column images refer 〖NBI〗_real , narrow-banding imaging colonoscopic images which focus on same polyps with left 〖WL〗_real images. (B) Mean opinion scores of 50 〖NBI〗_gen images as assessed by 4 experts (C) Percentage of well-implemented features(Color, Surface pattern, Vessel pattern) in 50 〖NBI〗_gen images as assessed by 4 experts._
+### Figure. Example of Generated NBI Images and Clinical Expert Assessment
+
+**(A)** The first column shows images labeled as `WL_real`, which are white light imaging (WLI) colonoscopic images. The second column presents `NBI_gen` images, which are translated narrow-band imaging (NBI) images generated from the corresponding `WL_real` images on the left. The third column shows `NBI_real` images, actual narrow-band imaging colonoscopic images focusing on the same polyps as the `WL_real` images on the left.
+
+**(B)** Mean opinion scores of 50 `NBI_gen` images as assessed by 4 clinical experts.
+
+**(C)** Percentage of well-implemented features (Color, Surface pattern, Vessel pattern) in 50 `NBI_gen` images, as assessed by 4 clinical experts.  
+
+
+
+
 
 This package provides reference implementation of the `UVCGAN v2: An Improved
 Cycle-Consistent GAN for Unpaired Image-to-Image Translation`
