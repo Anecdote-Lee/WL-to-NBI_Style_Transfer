@@ -1,4 +1,4 @@
-# UVCGAN v2: An Improved Cycle-Consistent GAN for Unpaired Image-to-Image Translation
+# White Light Imaging to Narrow-band Imaging via Style Transfer: A Feasibility Test for Enhancing Colonoscopic Diagnostics
 
 <p align="center">
   <img src="./figure.jpg">
