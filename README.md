@@ -12,8 +12,7 @@
 **(B)** Mean opinion scores of 50 `NBI_gen` images as assessed by 4 clinical experts.
 
 **(C)** Percentage of well-implemented features (Color, Surface pattern, Vessel pattern) in 50 `NBI_gen` images, as assessed by 4 clinical experts.  
-
-
+<br>
 
 
 
