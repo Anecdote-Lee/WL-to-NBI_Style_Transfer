@@ -2,7 +2,7 @@
 
 This repository contains code for translating Narrow-band Images from White Light Images by *'UVCGAN v2'*. 
 <p align="center">
-  <img src="./figure2.jpg">
+  <img src="./figure.jpg">
 </p>
 
 
