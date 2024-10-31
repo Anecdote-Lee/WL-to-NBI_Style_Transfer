@@ -1,17 +1,18 @@
 # White Light Imaging to Narrow-band Imaging via Style Transfer: A Feasibility Test for Enhancing Colonoscopic Diagnostics
 
+This repository contains code for translating Narrow-band Images from White Light Images by *'UVCGAN v2'*. 
 <p align="center">
   <img src="./figure.jpg">
 </p>
 
 
-### Figure. Example of Generated NBI Images and Clinical Expert Assessment
+### Example of Generated NBI Images and Clinical Expert Assessment
 
-**(A)** The first column shows images labeled as `WL_real`, which are white light imaging (WLI) colonoscopic images. The second column presents `NBI_gen` images, which are translated narrow-band imaging (NBI) images generated from the corresponding `WL_real` images on the left. The third column shows `NBI_real` images, actual narrow-band imaging colonoscopic images focusing on the same polyps as the `WL_real` images on the left.
+**(A)** The first column shows images labeled as $$WL_{real}$$, which are white light imaging (WLI) colonoscopic images. The second column presents $$NBI_{gen}$$ images, which are translated narrow-band imaging (NBI) images generated from the corresponding $$WL_{real}$$ images on the left. The third column shows $$NBI_{real}$$ images, actual narrow-band imaging colonoscopic images focusing on the same polyps as the $$WL_{real}$$ images on the left.
 
-**(B)** Mean opinion scores of 50 `NBI_gen` images as assessed by 4 clinical experts.
+**(B)** Mean opinion scores of 50 $$NBI_{gen}$$ images as assessed by 4 clinical experts.
 
-**(C)** Percentage of well-implemented features (Color, Surface pattern, Vessel pattern) in 50 `NBI_gen` images, as assessed by 4 clinical experts.  
+**(C)** Percentage of well-implemented features (Color, Surface pattern, Vessel pattern) in 50 $NBI_{gen}$$ images, as assessed by 4 clinical experts.  
 <br>
 
 ##
