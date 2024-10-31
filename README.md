@@ -39,7 +39,7 @@ Changed the arxiv preprint title:
 - from: ~"Rethinking CycleGAN: Improving Quality of GANs for Unpaired Image-to-Image Translation"~
 - to: "UVCGAN v2: An Improved Cycle-Consistent GAN for Unpaired Image-to-Image Translation Overview"
 
-
+<!--
 ## Applying UVCGANv2 to Your Dataset
 
 This README file mainly describes the reproduction of the `Rethinking CycleGAN`
@@ -368,7 +368,7 @@ invocation is similar to the `scripts/eval_fid.py` from the section 5.2.1.
 You can specify GPUs that `pytorch` will use with the help of the
 `CUDA_VISIBLE_DEVICES` environment variable. This variable can be set to a list
 of comma-separated GPU indices. When it is set, `pytorch` will only use GPUs
-whose IDs are in the `CUDA_VISIBLE_DEVICES`.
+whose IDs are in the `CUDA_VISIBLE_DEVICES`. -->
 
 
 # LICENSE
